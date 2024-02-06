@@ -7,8 +7,22 @@
     d) OOPs Concepts
 
 
+# 2. Spring Dependency Injection Example
 
-# 2. Spring Boot API CRUD Example
+This repository demonstrates a simple Spring application with constructor-based dependency injection.
+
+## Project Structure
+
+- `src/main/java/di/DebitCard.java`: Java class representing a Debit Card.
+- `src/main/java/di/Address.java`: Java class representing an Address.
+- `src/main/java/di/Main.java`: Main class to showcase the application.
+- `src/main/resources/app_context.xml`: Spring XML configuration file defining beans.
+
+## Debit Card Details
+
+The `DebitCard` class is responsible for representing a debit card and printing its details. It relies on an `Address` for location information.
+
+# 3. Spring Boot API CRUD Example
 
 This is a simple Spring Boot application demonstrating CRUD (Create, Read, Update, Delete) operations using RESTful APIs for managing employee data.
 
