@@ -1,67 +1,56 @@
-<<<<<<< HEAD
-package Java_concepts;
-import java.lang.reflect.Method;
+package java_concepts;
 
-public class HashCode {
+import java.util.HashSet;
+import java.util.Set;
 
-	public void getSampleMethod() {}
-	 
-    // create main method
-    public static void main(String args[])
-    {
- 
-        try {
- 
-            // create class object for class name HashCode
-            Class c = HashCode.class;
- 
-            // get Method object of method name getSampleMethod
-            Method method = c.getDeclaredMethod("getSampleMethod", null);
- 
-            // get hashcode of method object using hashCode() method
-            int hashCode = method.hashCode();
- 
-            // Print hashCode with method name
-            System.out.println("hashCode of method " + method.getName()
-                               + " is " + hashCode);
-        }
-        catch (Exception e) {
-            // print if any exception occurs
-            e.printStackTrace();
-        }
-    }
+// custom class named Book
+class Book {
+	String title;
+	String author;
+
+	// Constructor to initialize Book with title and author
+	public Book(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+
+	// Override the equals method to compare Book objects based on both title and author
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		Book book = (Book) obj;
+		return title.equals(book.title) && author.equals(book.author);
+	}
+
+	// Override the hashCode method to generate a unique hash code based on title and author
+	public int hashCode() {
+		int result = title.hashCode();
+		result = 31 * result + author.hashCode();
+		return result;
+	}
 }
-=======
-package Java_concepts;
-import java.lang.reflect.Method;
 
+// Main class to demonstrate HashSet with custom class
 public class HashCode {
+	public static void main(String[] args) {
 
-	public void getSampleMethod() {}
-	 
-    // create main method
-    public static void main(String args[])
-    {
- 
-        try {
- 
-            // create class object for class name HashCode
-            Class c = HashCode.class;
- 
-            // get Method object of method name getSampleMethod
-            Method method = c.getDeclaredMethod("getSampleMethod", null);
- 
-            // get hashcode of method object using hashCode() method
-            int hashCode = method.hashCode();
- 
-            // Print hashCode with method name
-            System.out.println("hashCode of method " + method.getName()
-                               + " is " + hashCode);
-        }
-        catch (Exception e) {
-            // print if any exception occurs
-            e.printStackTrace();
-        }
-    }
+		// Create a HashSet to store Book objects
+		Set<Book> bookSet = new HashSet<>();
+
+		// Create several Book objects with different titles and authors
+		Book book1 = new Book("Java", "James");
+		Book book2 = new Book("Python", "Guido");
+		Book book3 = new Book("Java", "James"); // Duplicate of book1
+
+		bookSet.add(book1);
+		bookSet.add(book2);
+		bookSet.add(book3); // duplicate
+
+		System.out.println("Books Present:");
+		for (Book book : bookSet) {
+			System.out.println(book.title + " - " + book.author);
+		}
+	}
 }
->>>>>>> 993e728c6925ff6f35c145acc643240027a3c0d8
