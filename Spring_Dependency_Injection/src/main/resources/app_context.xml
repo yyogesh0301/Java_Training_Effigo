@@ -1,33 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- applicationContext.xml -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-          http://www.springframework.org/schema/beans/spring-beans.xsd
-          http://www.springframework.org/schema/context
-          http://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <context:annotation-config/>      
-  
-    <!-- Details Bean -->
-    <bean id="dcard" class="di.DebitCard">
-        <constructor-arg value="12345678901234"/> 
-        <constructor-arg value="Yogesh Yadav"/> 
-        <constructor-arg value="1000.0"/> 
-        <constructor-arg ref="homeAddress"/> 
-    </bean>
-    <bean id="homeAddress" class="di.Address">
-        <constructor-arg type="String" value="123 Main Street"/>
-        <constructor-arg type="String" value="Indore"/>
-        <constructor-arg type="String" value="451551"/>
-        <constructor-arg type="String" value="India"/>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="di.Address">
+        <property name="street" value="123 Main Street"/>
+        <property name="city" value="Indore"/>
+        <property name="postalCode" value="451551"/>
+        <property name="country" value="India"/>
     </bean>
 
-    <bean id="workAddress" class="di.Address">
-        <constructor-arg type="String" value="14th Cross Road"/>
-        <constructor-arg type="String" value="Bengaluru"/>
-        <constructor-arg type="String" value="560102"/>
-        <constructor-arg type="String" value="India"/>
+    <bean id="debitCard" class="di.DebitCard">
+        <property name="address" ref="address"/>
+        <property name="cardNumber" value="12345678901234"/>
+        <property name="cardHolderName" value="Yogesh Yadav"/>
+        <property name="balance" value="1000.0"/>
     </bean>
-   
 </beans>

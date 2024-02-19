@@ -5,11 +5,11 @@
     b) Assignment-2 Date conversion
     c) Java Concepts
     d) OOPs Concepts
-
+    2) Working With Files
 
 # 2. Spring Dependency Injection Example
 
-This repository demonstrates a simple Spring application with constructor-based dependency injection.
+This repository demonstrates a simple Spring application with dependency injection.
 
 ## Project Structure
 
