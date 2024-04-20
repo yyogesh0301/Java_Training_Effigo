@@ -1,0 +1,20 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="di.Address">
+        <property name="street" value="123 Main Street"/>
+        <property name="city" value="Indore"/>
+        <property name="postalCode" value="451551"/>
+        <property name="country" value="India"/>
+    </bean>
+
+    <bean id="debitCard" class="di.DebitCard">
+        <property name="address" ref="address"/>
+        <property name="cardNumber" value="12345678901234"/>
+        <property name="cardHolderName" value="Yogesh Yadav"/>
+        <property name="balance" value="1000.0"/>
+    </bean>
+</beans>
